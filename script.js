@@ -6,6 +6,7 @@ function sumOfTotal() {
     total += Number(price.innerHTML.split('$')[1]);
     catchaP.innerText = total;
   });
+  // Math.round(total * 100) / 100
 }
 function createProductImageElement(imageSource) {
   const img = document.createElement('img');
@@ -97,10 +98,14 @@ function deleteButton() {
 }
 
 window.onload = function onload() {
+  const load = document.querySelector('#loading');
+  load.innerText = 'loading...';
   const API_URL = 'https://api.mercadolibre.com/sites/MLB/search?q=computador';
   fetch(API_URL)
     .then((response) => response.json())
     .then((data) => {
+      const container = document.querySelector('.container');
+      container.removeChild(load);
       data.results.forEach((element) =>
         createProductItemElement(element));
     });
@@ -144,6 +149,6 @@ window.onload = function onload() {
 // 1° localizar o valor x
 // 2° somar os valores x
 // 3° Preparar o  ambiente para adicionar a soma  x
-// 4° transformar a função em assincrona
+// 4° transformar a função em assincrona x
 
 // Agradecimentos ao Alan Tanaka Turma 10 tribo B - Henrique Zozimo Turma 10 Tribo B - Daniel ROberto Turma 10 Tribo B - Thiago Marchini Turma 10 Tribo B por ter me auxiliado nos desafios.

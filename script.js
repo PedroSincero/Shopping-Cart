@@ -100,7 +100,7 @@ function deleteButton() {
 window.onload = function onload() {
   const load = document.querySelector('.loading');
   load.innerText = 'carregando';
-  const API_URL = 'https://api.mercadolibre.com/sites/MLB/search?q=computador';
+  const API_URL = 'https://api.mercadolibre.com/sites/MLB/search?q=ventilador';
   fetch(API_URL)
     .then((response) => response.json())
     .then((data) => {

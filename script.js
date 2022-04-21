@@ -3,10 +3,11 @@ function sumOfTotal() {
   const catchaP = document.querySelector('p');
   const catchaCartItem = document.querySelectorAll('.cart__item');
   catchaCartItem.forEach((price) => {
+    console.log('o preço', price);
     total += Number(price.innerHTML.split('$')[1]);
+    console.log('com number', Number(price.innerHTML.split('$')[1]));
     catchaP.innerText = total;
   });
-  // Math.round(total * 100) / 100
 }
 function createProductImageElement(imageSource) {
   const img = document.createElement('img');
@@ -100,7 +101,7 @@ function deleteButton() {
 window.onload = function onload() {
   const load = document.querySelector('.loading');
   load.innerText = 'carregando';
-  const API_URL = 'https://api.mercadolibre.com/sites/MLB/search?q=ventilador';
+  const API_URL = 'https://api.mercadolibre.com/sites/MLB/search?q=computador';
   fetch(API_URL)
     .then((response) => response.json())
     .then((data) => {
